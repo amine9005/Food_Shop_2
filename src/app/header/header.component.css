@@ -1,0 +1,34 @@
+
+header{
+  background-color: white;
+  padding: 0;
+  border-bottom: 1px solid var(--second-color);
+}
+
+a{
+  color: black;
+  padding: 1rem 1rem;
+  border-radius: .5rem;
+  text-decoration: none;
+}
+
+a:hover{
+  background-color: var(--first-color);
+  color: white;
+}
+
+
+.container{
+  display: flex;
+  margin: .5rem 2rem;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+}
+
+nav ul li a {
+  display: inline-block;
+}

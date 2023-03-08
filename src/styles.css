@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+*{
+  /* load Poppins fonts otherwise load sans-serif */
+  font-family: 'Poppins',sans-serif;
+  /* a 100px box will stay 100px reagrdless of the padding and margin */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* animate the moving of the scroll bar on link selection */
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  transition: all 0.2s linear;
+}
+html{
+  font-size: 16px;
+}
+
+:root{
+  --first-color:#04ff26;
+  --second-color:#ffbf00;
+  --third-color:#a3ff6a;
+  --light-bg:#f0eaea;
+  --black:#3c3c3c;
+}
