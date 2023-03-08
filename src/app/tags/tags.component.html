@@ -1,5 +1,12 @@
-<div class="container" *ngIf="tags">
+<div class="container" *ngIf="tags" [style.justifyContent]>
   <a class="tag" *ngFor="let tag of tags" routerLink="/Tag/{{ tag.name }}">
     {{ tag.name }}({{ tag.count }})
   </a>
 </div>
+
+<div class="container" *ngIf="foodPage" [style.justify-content]="justifyContent">
+  <a class="food-page-tag" *ngFor="let foodtag of foodPage" routerLink="/Tag/{{ foodtag }}">
+    {{ foodtag }}
+  </a>
+</div>
+

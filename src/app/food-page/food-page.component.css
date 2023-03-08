@@ -1,0 +1,107 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 3rem;
+}
+
+.container > *{
+  min-width: 10rem;
+  max-width: 50rem;
+}
+
+
+img{
+  border-radius: 3rem;
+  /* help resizing the image to fit with details css class */
+  flex: 1 0;
+  margin: 1rem;
+}
+
+.details{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  border-radius: 3rem;
+  padding: 2rem;
+  color: black;
+}
+
+.container .header{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-size: 3rem;
+}
+
+.details .favorite{
+  color: yellow;
+  cursor: pointer;
+}
+.details .favorite.not{
+  color: gray;
+}
+
+.details .favorite:hover{
+  color: var(--first-color);
+}
+
+.details .origins{
+  display: flex;
+  flex-wrap: wrap;
+  margin: .5rem 0;
+}
+
+.details .origins span{
+  padding: .5rem;
+  font-size: 1.2rem;
+  margin: .5rem .5rem .5rem 0;
+  border-radius: 1rem;
+  background-color: var(--light-bg);
+}
+
+.details .cook-time{
+  margin-bottom: 1rem;
+}
+
+.details .cook-time span{
+  font-size: 1.5rem;
+}
+
+.details .price{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: green;
+}
+
+.details .cartButton{
+  font-size: 2rem;
+  background-color: var(--second-color);
+  padding: .5rem;
+  border-radius: 3rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  border: none;
+}
+
+.details .priceLabel{
+  color: gray;
+  opacity: .7;
+}
+
+.details .cartButton:hover{
+  background-color: var(--first-color);
+  color: white;
+}
+
+@media (max-width:1400px) {
+
+  .container{
+    display: grid;
+  }
+
+}

@@ -23,3 +23,28 @@
   background-color: var(--first-color);
   font-size: 1.2rem;
 }
+
+
+.food-page-container{
+  display: block;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.food-page-tag{
+  margin: 0 .2rem;
+  background-color: var(--second-color);
+  border-radius: 2rem;
+  font-size: 1rem;
+  padding: .5rem;
+  outline: none;
+  color: white;
+  text-decoration: none;
+  opacity: .8;
+}
+
+.food-page-tag:hover{
+  background-color: var(--first-color);
+}

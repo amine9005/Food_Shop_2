@@ -30,8 +30,6 @@ export class HomeComponent {
       } else{
         this.foods = this.FoodService.getAll();
       }
-
-
     })
   }
 
