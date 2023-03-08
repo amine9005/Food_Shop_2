@@ -10,6 +10,8 @@ a{
   padding: 1rem 1rem;
   border-radius: .5rem;
   text-decoration: none;
+  background-color: var(--second-color);
+  font-size: 1.2rem;
 }
 
 a:hover{

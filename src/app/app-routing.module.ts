@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'Search/:searchTerm',component:HomeComponent},
-  {path:'tag/:tags',component:HomeComponent},
+  {path:'Tag/:tags',component:HomeComponent},
 ];
 
 @NgModule({

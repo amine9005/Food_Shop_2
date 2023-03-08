@@ -1,4 +1,5 @@
 <app-search></app-search>
+<app-tags></app-tags>
 <ul>
   <li *ngFor="let food of foods">
       <a>
@@ -15,7 +16,7 @@
               [value]="food.stars"
               [totalstars]="5"
               checkedcolor="yellow"
-              uncheckedcolor="black"
+              uncheckedcolor="grey"
               size="20px"
               [readonly]="true">
             </star-rating>

@@ -24,11 +24,9 @@ export class HomeComponent {
 
     this.route.params.subscribe( params => {
       if(params['searchTerm']) {
-        this.foods = this.FoodService.getAll().filter( food =>
-          food.name.toLowerCase().includes(params['searchTerm'].toLowerCase()));
+        this.foods = this.FoodService.getAllFoodsBySearch(params['searchTerm']);
       } else if(params['tags']){
-        this.foods = this.FoodService.getAll().filter( food =>
-            food.name.toLowerCase().includes(params['tags'].toLowerCase()));
+        this.foods = this.FoodService.getAllFoodsByTag(params['tags']);
       } else{
         this.foods = this.FoodService.getAll();
       }
