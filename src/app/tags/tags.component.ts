@@ -23,6 +23,4 @@ export class TagsComponent {
       this.tags = this.foodService.getAllTags();
     }
   }
-
-
 }
