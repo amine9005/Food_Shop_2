@@ -1,0 +1,27 @@
+
+
+div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 20%;
+  margin: 3rem;
+}
+
+a{
+  margin-top: 1rem;
+  text-decoration: none;
+  background-color: var(--second-color);
+  color: black;
+  border-radius: 10rem;
+  padding: 1rem;
+
+}
+ a:hover{
+  background-color: var(--first-color);
+  color: white;
+ }
+

@@ -27,7 +27,7 @@ ul li a:hover{
   width: 22rem;
   opacity: .8;
   cursor: pointer;
-  border: 3px solid yellow;
+  border: 3px solid var(--first-color);
 }
 
 .grid-container{

@@ -1,0 +1,25 @@
+
+
+
+footer{
+  position:static;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+}
+
+
+
+span{
+  margin-left: 1rem;
+  color: var(--second-color);
+  font-weight: bold;
+}
