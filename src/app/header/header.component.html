@@ -3,10 +3,11 @@
 <header>
     <div class="container">
         <a href="" routerlink="\" class="logo"> Food Shop</a>
-        <nav>
-          <ul>
-            <li>  <a href="" routerLink="Cart">Cart</a></li>
-          </ul>
-        </nav>
+        <div class="left-buttons">
+          <a href="" routerLink="Cart">Cart</a>
+          <a *ngIf="!isLogedIn" href="" routerLink="Login">Login</a>
+          <a *ngIf="isLogedIn" href="" (click)="logout()">Logout</a>
+
+        </div>
     </div>
 </header>

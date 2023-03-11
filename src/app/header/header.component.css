@@ -19,18 +19,20 @@ a:hover{
   color: white;
 }
 
-
 .container{
   display: flex;
+  position: relative;
   margin: .5rem 2rem;
   justify-content: space-between;
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
+.left-buttons{
+  right: 0;
+  position: absolute;
+  display: flex;
 }
 
-nav ul li a {
-  display: inline-block;
+.left-buttons a{
+  margin-left: 1rem;
 }
+
