@@ -31,3 +31,13 @@ div button:hover{
   background-color: var(--first-color);
 
 }
+
+
+@media (max-width:700px){
+  div input {
+    display: none;
+  }
+  div button{
+    display: none;
+  }
+}

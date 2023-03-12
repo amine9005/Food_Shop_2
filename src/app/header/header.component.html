@@ -7,7 +7,7 @@
           <a href="" routerLink="Cart">Cart</a>
           <a *ngIf="!isLogedIn" href="" routerLink="Login">Login</a>
           <a *ngIf="isLogedIn" href="" (click)="logout()">Logout</a>
-
+          <fa-icon class="menu" [icon]="['fas','bars']"></fa-icon>
         </div>
     </div>
 </header>

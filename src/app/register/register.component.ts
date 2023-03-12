@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class RegisterComponent {
   email:string = '';
   password:string = '';
+  cpassword:string = '';
   constructor(private authService:AuthService,){
 
   }

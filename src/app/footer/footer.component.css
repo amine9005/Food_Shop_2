@@ -22,3 +22,18 @@ span{
   color: var(--second-color);
   font-weight: bold;
 }
+
+@media (max-width:480px) {
+
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+@media (min-width:380px) {
+
+}
