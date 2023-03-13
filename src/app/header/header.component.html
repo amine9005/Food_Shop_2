@@ -7,7 +7,19 @@
           <a href="" routerLink="Cart">Cart</a>
           <a *ngIf="!isLogedIn" href="" routerLink="Login">Login</a>
           <a *ngIf="isLogedIn" href="" (click)="logout()">Logout</a>
-          <fa-icon class="menu" [icon]="['fas','bars']"></fa-icon>
         </div>
+
+    </div>
+
+    <div class="mobile-container">
+      <div>
+        <fa-icon id="menu" class="menu {{ isClicked ? '':'activate' }}" [icon]="isClicked ? ['fas','times']:['fas','bars']"
+        (click)="changeMenu()" ></fa-icon>
+      </div>
+      <a href="" routerlink="\" class="logo"> Food Shop</a>
+      <a href="" routerLink="Cart">Cart</a>
+      <a *ngIf="!isLogedIn" href="" routerLink="Login">Login</a>
+      <a *ngIf="isLogedIn" href="" (click)="logout()">Logout</a>
+
     </div>
 </header>

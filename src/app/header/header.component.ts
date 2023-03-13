@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class HeaderComponent {
 
   isLogedIn:boolean = false;
+  isClicked:boolean = false;
   constructor(private authService:AuthService){
     this.isLogedIn = localStorage.getItem('token') ? true:false;
   }
@@ -17,5 +18,10 @@ export class HeaderComponent {
     this.authService.logout();
 
   }
+
+  changeMenu(){
+    this.isClicked = !this.isClicked
+  }
+
 
 }
