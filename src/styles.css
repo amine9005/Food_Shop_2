@@ -25,4 +25,10 @@ html{
   --third-color:#a3ff6a;
   --light-bg:#f0eaea;
   --black:#3c3c3c;
+  --wrong:#ffa3a3;
+}
+
+
+@media (min-width:380px) {
+
 }

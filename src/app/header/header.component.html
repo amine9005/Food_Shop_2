@@ -12,14 +12,20 @@
     </div>
 
     <div class="mobile-container">
-      <div>
+      <a href="" routerlink="\" class="logo-mobile"> Food Shop</a>
+
+      <div class="menu-container">
         <fa-icon id="menu" class="menu {{ isClicked ? '':'activate' }}" [icon]="isClicked ? ['fas','times']:['fas','bars']"
         (click)="changeMenu()" ></fa-icon>
       </div>
-      <a href="" routerlink="\" class="logo"> Food Shop</a>
-      <a href="" routerLink="Cart">Cart</a>
-      <a *ngIf="!isLogedIn" href="" routerLink="Login">Login</a>
-      <a *ngIf="isLogedIn" href="" (click)="logout()">Logout</a>
+      <div class="nav-container {{ !isClicked ? '':'active' }}">
+        <a (click)="changeMenu()"  href="" routerlink="\" class="logo"> Home</a>
+        <a (click)="changeMenu()"  href="" routerLink="Cart">Cart</a>
+        <a (click)="changeMenu()"  *ngIf="!isLogedIn" href="" routerLink="Login">Login</a>
+        <a (click)="changeMenu()"  *ngIf="isLogedIn" href="" (click)="logout()">Logout</a>
+        <app-search ></app-search>
+      </div>
+
 
     </div>
 </header>

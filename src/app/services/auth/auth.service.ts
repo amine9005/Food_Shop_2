@@ -21,7 +21,7 @@ export class AuthService {
           this.router.navigate(['']);
 
         } , err => {
-          alert('Something went worng!');
+          alert('Invalid email or password!');
           this.router.navigate(['Login']);
         }
       );
@@ -32,7 +32,7 @@ export class AuthService {
         alert("Registration was successful");
         this.router.navigate(['Login']);
       } , err =>{
-        alert('Something went worng!');
+        alert('Invaild Email!');
           this.router.navigate(['Register']);
       }
 

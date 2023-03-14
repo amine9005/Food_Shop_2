@@ -61,3 +61,11 @@ ul li a:hover{
 .origins{
   font-size: 1rem;
 }
+
+
+@media (max-width:700px) {
+  .search{
+    display: none;
+  }
+
+}

@@ -12,8 +12,12 @@ import { FoodService } from '../services/food/food.service';
 export class CartPageComponent {
   cart!:Cart;
 
-  constructor(private cartService:CartService){
+  constructor(private cartService:CartService
+    // ,private foodService:FoodService
+    ){
 
+    // this.cartService.addToCart(this.foodService.getAll()[0]);
+    // this.cartService.addToCart(this.foodService.getAll()[4]);
     this.setCart()
   }
 

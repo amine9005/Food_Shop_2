@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent {
 
   isLogedIn:boolean = false;
   isClicked:boolean = false;
-  constructor(private authService:AuthService){
+  constructor(private authService:AuthService , private router:Router){
     this.isLogedIn = localStorage.getItem('token') ? true:false;
   }
 
@@ -18,6 +19,8 @@ export class HeaderComponent {
     this.authService.logout();
 
   }
+
+
 
   changeMenu(){
     this.isClicked = !this.isClicked

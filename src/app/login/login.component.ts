@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,10 @@ export class LoginComponent {
   email:string = '';
   password:string = '';
   background_color:string = '#ffb8b8';
+
+  isVaildEmail:boolean = true;
+  isVaildPassword:boolean = true;
+  isVaildCPassword:boolean = true;
   constructor(private authService:AuthService,private router:Router){
 
     if(localStorage.getItem('toekn')){
@@ -20,17 +25,27 @@ export class LoginComponent {
   }
 
   login(){
-    if (this.email == ''){
-      return;
-    } else{
+    const vaildEmail = new FormControl(this.email, [Validators.email,Validators.required,Validators.max(64)]);
+    const validPassword = new FormControl(this.password, [Validators.required,Validators.min(8),Validators.max(64)]);
 
+    if (vaildEmail.errors != null){
+      this.isVaildEmail = false;
+    }else{
+      this.isVaildEmail = true;
     }
-    if (this.password == ''){
-      return;
+
+    if (validPassword.errors != null){
+      this.isVaildPassword = false;
+    }else{
+      this.isVaildPassword = true;
     }
-    this.authService.login(this.email,this.password);
-    this.email = '';
-    this.password = '';
+
+    if (this.isVaildEmail && this.isVaildPassword){
+      this.authService.login(this.email,this.password);
+      this.email = '';
+      this.password = '';
+    }
+
 
   }
 }

@@ -76,6 +76,12 @@ div span a {
 }
 
 
+.field.wrong{
+  background-color: var(--wrong);
+  outline-color: red;
+}
+
+
 @media (max-width:480px) {
 
   div span {

@@ -45,22 +45,71 @@ a:hover{
 }
 
 
+.logo-mobile{
+  display: none;
+}
 
 @media (max-width:700px) {
   .container{
     display: none;
   }
 
+  .logo-mobile{
+    display: initial;
+    position: absolute;
+    left: 5%;
+    top: .3rem;
+  }
+
+
   .mobile-container{
     display:flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+  }
+  .nav-container{
+    display:none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: .2s linear;
+  }
+
+  .nav-container.active{
+    display:flex;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: .2s linear;
+  }
+
+  .nav-container a {
+    border-radius: 0;
+    background-color: white;
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .nav-container a:last-child{
+    border: none;
+  }
+
+  .menu-container{
+    position: relative;
+    left: 42%;
   }
   .menu{
     display: initial;
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .menu.activate{
     transform: rotate(180deg);
   }
+}
+
+@media (min-width:380px) {
+
 }

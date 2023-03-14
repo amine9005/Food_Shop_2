@@ -53,9 +53,13 @@
   text-decoration: none;
   color: black;
   cursor: pointer;
-
-
 }
+
+.field.wrong{
+  background-color: var(--wrong);
+  outline-color: red;
+}
+
 
 
 .login:hover{
