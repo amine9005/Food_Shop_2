@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/Food';
 import { Tag } from 'src/app/shared/models/Tag';
-
+// import {AngularFirestore} from '@angular/fire/compat/firestore'
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
 
-  constructor() { }
+  constructor(
+    // private afs:AngularFirestore
+    ) { }
 
   getFoodById( id:number ):Food{
     return this.getAll().find(food => food.id == id)!;
@@ -26,6 +28,10 @@ export class FoodService {
       { name: 'Soup', count: 1 },
     ];
   }
+
+  // getAllFireTags(){
+  //   return this.afs.collection('/Tags').snapshotChanges();
+  // }
 
   getAllFoodsBySearch(searchTerm:string):Food[]{
       return this.getAll().filter( food =>

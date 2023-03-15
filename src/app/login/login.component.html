@@ -6,10 +6,8 @@
     <input class="field {{ isVaildEmail ? '':'wrong' }}" type="email" placeholder="Enter your email" [(ngModel)]="email" required>
     <input class="field {{ isVaildPassword ? '':'wrong' }}" type="password" placeholder="Enter your password" [(ngModel)]="password" required>
     <a class="login" (click)="login()">Login</a>
-    <span>Don't have an account ? <a class="Register" routerLink="/Register">Register now!</a> </span>
+    <span>Don't have an account ? <a routerLink="/Register">Register now!</a> </span>
+    <span class="rest-password"><a class="rest-link" routerLink="/Rest-password">Forgat password ?</a></span>
   </div>
-
-
-
 
 </div>

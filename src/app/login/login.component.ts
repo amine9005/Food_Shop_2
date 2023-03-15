@@ -12,16 +12,12 @@ export class LoginComponent {
 
   email:string = '';
   password:string = '';
-  background_color:string = '#ffb8b8';
 
   isVaildEmail:boolean = true;
   isVaildPassword:boolean = true;
   isVaildCPassword:boolean = true;
   constructor(private authService:AuthService,private router:Router){
 
-    if(localStorage.getItem('toekn')){
-      router.navigate(['']);
-    }
   }
 
   login(){
