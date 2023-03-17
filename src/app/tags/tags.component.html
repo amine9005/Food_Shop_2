@@ -1,6 +1,7 @@
 <div class="container" *ngIf="tags" [style.justifyContent]>
-  <a class="tag" *ngFor="let tag of tags" routerLink="/Tag/{{ tag.name }}">
-    {{ tag.name }}({{ tag.count }})
+  <a class="tag" *ngFor="let tag of tags" routerLink="/Tag/{{
+    tag.name[0] == '0'? tag.name.substring(1,tag.name.length) : tag.name }}">
+    {{ tag.name[0] == '0'? tag.name.substring(1,tag.name.length) : tag.name }}({{ tag.count }})
   </a>
 </div>
 

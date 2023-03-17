@@ -8,7 +8,6 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
-
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'Search/:searchTerm',component:HomeComponent},

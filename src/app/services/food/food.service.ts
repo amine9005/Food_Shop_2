@@ -1,16 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/Food';
 import { Tag } from 'src/app/shared/models/Tag';
-// import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { AngularFirestore, AngularFirestoreCollection,  } from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
 
+  private dbPath = '/Tags';
+  tagsRef :AngularFirestoreCollection<Tag>;
+
   constructor(
-    // private afs:AngularFirestore
-    ) { }
+    private readonly afs:AngularFirestore,
+    ) {
+      this.tagsRef = afs.collection(this.dbPath);
+    }
+
+  getAllFireTags(){
+    return this.tagsRef.snapshotChanges();
+  }
+
 
   getFoodById( id:number ):Food{
     return this.getAll().find(food => food.id == id)!;
@@ -18,20 +29,17 @@ export class FoodService {
 
   getAllTags():Tag[]{
     return [
-      { name: 'All', count: 14 },
-      { name: 'FastFood', count: 4 },
-      { name: 'Pizza', count: 2 },
-      { name: 'Lunch', count: 3 },
-      { name: 'SlowFood', count: 2 },
-      { name: 'Hamburger', count: 1 },
-      { name: 'Fry', count: 1 },
-      { name: 'Soup', count: 1 },
+      { id:'1',name: 'All', count: 14 },
+      { id:'2',name: 'FastFood', count: 4 },
+      { id:'3',name: 'Pizza', count: 2 },
+      { id:'4',name: 'Lunch', count: 3 },
+      { id:'5',name: 'SlowFood', count: 2 },
+      { id:'6',name: 'Hamburger', count: 1 },
+      { id:'7',name: 'Fry', count: 1 },
+      { id:'8',name: 'Soup', count: 1 },
     ];
   }
 
-  // getAllFireTags(){
-  //   return this.afs.collection('/Tags').snapshotChanges();
-  // }
 
   getAllFoodsBySearch(searchTerm:string):Food[]{
       return this.getAll().filter( food =>
