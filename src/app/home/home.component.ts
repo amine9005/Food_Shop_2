@@ -21,15 +21,39 @@ export class HomeComponent {
   }
 
   ngOnInit(){
-
     this.route.params.subscribe( params => {
       if(params['searchTerm']) {
-        this.foods = this.FoodService.getAllFoodsBySearch(params['searchTerm']);
+        this.getAllFoodsBySearch(params['searchTerm']);
       } else if(params['tags']){
-        this.foods = this.FoodService.getAllFoodsByTag(params['tags']);
+        this.getAllFoodsByTag(params['tags']);
       } else{
-        this.foods = this.FoodService.getAll();
+        this.getFoods();
       }
+    })
+  }
+
+  getAllFoodsBySearch(searchTerm:string){
+    this.FoodService.getAllFireFoods().subscribe(data => {
+      this.foods = data.filter(food =>
+        food.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    });
+
+}
+
+  getAllFoodsByTag(tag:string){
+    tag.toLowerCase()=="all"? this.getFoods() : this.getFoodByTag(tag);
+  }
+
+  getFoodByTag(tag:string){
+    this.FoodService.getAllFireFoods().subscribe(data => {
+      this.foods = data.filter(foods => foods.tags?.includes(tag) );
+      })
+  }
+
+  getFoods(){
+   this.FoodService.getAllFireFoods().subscribe(data => {
+    this.foods = data;
     })
   }
 

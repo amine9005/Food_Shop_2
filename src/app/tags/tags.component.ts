@@ -44,8 +44,8 @@ export class TagsComponent {
   retrieveTags() {
 
     this.foodService.getAllFireTags().pipe(
-      map(chagnes => chagnes.map( c =>
-        ({...c.payload.doc.data()})
+      map(chagnes => chagnes.map(
+        c => ({...c.payload.doc.data()})
         ))).subscribe(data =>
           {this.tags = data.sort(this.sortByName)});
   }

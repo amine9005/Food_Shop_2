@@ -22,11 +22,14 @@ export class FoodPageComponent {
     activatedRoute.params.subscribe(
       (params)=>{
         if(params['id']){
-          this.food = foodService.getFoodById(params['id']);
+          foodService.getAllFireFoods().subscribe(data => {
+            this.food =  data.find(food => food.id == params['id'])!;
+          })
         }
       }
     )
   }
+
 
   addToCart(food:Food){
     this.cartService.addToCart(food);

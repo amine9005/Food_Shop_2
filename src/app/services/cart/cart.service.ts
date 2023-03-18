@@ -8,7 +8,23 @@ import { CartItem } from '../../shared/models/CartItem';
 })
 export class CartService {
 
-  private cart:Cart = new Cart();
+  private dbPath:string = '/Cart';
+
+
+  private cart!:Cart;
+
+  constructor(){
+    const localCart = localStorage.getItem('cart');
+    if (this.cart == null && localCart == null){
+      alert("here")
+      this.cart = new Cart()
+      localStorage.setItem('cart',JSON.stringify(this.cart));
+    } else if (this.cart == null && localCart!=null){
+      alert("new ")
+      this.cart = JSON.parse(localCart) as Cart;
+    }
+
+  }
 
   addToCart(food: Food):void{
     let cartItem = this.cart.items.find(item => item.food.id === food.id);
@@ -18,6 +34,7 @@ export class CartService {
     }
     this.cart.items.push(new CartItem(food));
   }
+
 
   removeFromCart(foodId:number): void{
     this.cart.items =

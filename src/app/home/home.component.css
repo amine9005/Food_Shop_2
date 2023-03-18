@@ -22,6 +22,13 @@ ul li a{
   text-decoration: none;
 }
 
+ul li a img{
+  max-width: 100%;
+  max-height: 62%;
+  min-width: 100%;
+  min-height: 62%;
+}
+
 ul li a:hover{
   height: 25rem;
   width: 22rem;

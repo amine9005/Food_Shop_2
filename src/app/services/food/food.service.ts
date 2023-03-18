@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/Food';
 import { Tag } from 'src/app/shared/models/Tag';
-import { AngularFirestore, AngularFirestoreCollection,  } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction,  } from '@angular/fire/compat/firestore';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -9,13 +9,19 @@ import { Observable, map } from 'rxjs';
 })
 export class FoodService {
 
-  private dbPath = '/Tags';
+  private dbPathTags = '/Tags';
+  private dbPathFoods = '/Foods';
   tagsRef :AngularFirestoreCollection<Tag>;
+  foodsRef :AngularFirestoreCollection<Food>;
+
+  private foods!:Food[];
 
   constructor(
     private readonly afs:AngularFirestore,
     ) {
-      this.tagsRef = afs.collection(this.dbPath);
+      this.tagsRef = afs.collection(this.dbPathTags);
+      this.foodsRef = afs.collection(this.dbPathFoods);
+      this.getAll()
     }
 
   getAllFireTags(){
@@ -24,106 +30,22 @@ export class FoodService {
 
 
   getFoodById( id:number ):Food{
-    return this.getAll().find(food => food.id == id)!;
-  }
-
-  getAllTags():Tag[]{
-    return [
-      { id:'1',name: 'All', count: 14 },
-      { id:'2',name: 'FastFood', count: 4 },
-      { id:'3',name: 'Pizza', count: 2 },
-      { id:'4',name: 'Lunch', count: 3 },
-      { id:'5',name: 'SlowFood', count: 2 },
-      { id:'6',name: 'Hamburger', count: 1 },
-      { id:'7',name: 'Fry', count: 1 },
-      { id:'8',name: 'Soup', count: 1 },
-    ];
+    return this.foods.find(food => food.id == id)!;
   }
 
 
-  getAllFoodsBySearch(searchTerm:string):Food[]{
-      return this.getAll().filter( food =>
-        food.name.toLowerCase().includes( searchTerm.toLowerCase() ));
-  }
-
-  getAllFoodsByTag(tag:string):Food[]{
-    // if true == ?
-    // do job 1 if true do job 2 if false
-    // statement ? do job1 : do job 2
-    return tag=="All"?
-    this.getAll() :
-    this.getAll().filter(food => food.tags?.includes(tag));
+  getAllFireFoods(){
+    return this.foodsRef.snapshotChanges().pipe(map(changes => changes.map(
+      c => ({ ...c.payload.doc.data()})
+    )));
   }
 
   getAll():Food[]{
-    return [
-      {
-        id: 1,
-        name: 'Pizza Pepperoni',
-        cookTime: '10-20',
-        price: 10,
-        favorite: false,
-        origins: ['italy'],
-        stars: 4.5,
-        imageUrl: '/assets/images/foods/food-1.jpg',
-        tags: ['FastFood', 'Pizza', 'Lunch'],
-      },
-      {
-        id: 2,
-        name: 'Meatball',
-        price: 20,
-        cookTime: '20-30',
-        favorite: true,
-        origins: ['persia', 'middle east', 'china'],
-        stars: 4.7,
-        imageUrl: '/assets/images/foods/food-2.jpg',
-        tags: ['SlowFood', 'Lunch'],
-      },
-      {
-        id: 3,
-        name: 'Hamburger',
-        price: 5,
-        cookTime: '10-15',
-        favorite: false,
-        origins: ['germany', 'us'],
-        stars: 3.5,
-        imageUrl: '/assets/images/foods/food-3.jpg',
-        tags: ['FastFood', 'Hamburger'],
-      },
-      {
-        id: 4,
-        name: 'Fried Potatoes',
-        price: 2,
-        cookTime: '15-20',
-        favorite: true,
-        origins: ['belgium', 'france'],
-        stars: 3.3,
-        imageUrl: '/assets/images/foods/food-4.jpg',
-        tags: ['FastFood', 'Fry'],
-      },
-      {
-        id: 5,
-        name: 'Chicken Soup',
-        price: 11,
-        cookTime: '40-50',
-        favorite: false,
-        origins: ['india', 'asia'],
-        stars: 3.0,
-        imageUrl: '/assets/images/foods/food-5.jpg',
-        tags: ['SlowFood', 'Soup'],
-      },
-      {
-        id: 6,
-        name: 'Vegetables Pizza',
-        price: 9,
-        cookTime: '40-50',
-        favorite: false,
-        origins: ['italy'],
-        stars: 4.0,
-        imageUrl: '/assets/images/foods/food-6.jpg',
-        tags: ['FastFood', 'Pizza', 'Lunch'],
-      },
-    ]
 
+    this.getAllFireFoods().subscribe(data => {
+      this.foods = data
+    });
+
+    return this.foods;
   }
 }

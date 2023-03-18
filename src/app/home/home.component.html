@@ -30,7 +30,7 @@
           <div class="container container-footer">
             <div class="origins">
               <span *ngFor="let origin of food.origins">
-                {{ origin }}
+                {{ origin | titlecase }}
               </span>
             </div>
           </div>
