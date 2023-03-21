@@ -30,7 +30,6 @@ export class FoodPageComponent {
     )
   }
 
-
   addToCart(food:Food){
     this.cartService.addToCart(food);
     this.router.navigateByUrl('/Cart');

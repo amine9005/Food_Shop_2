@@ -3,6 +3,7 @@ import { Cart } from '../shared/models/Cart';
 import { CartService } from '../services/cart/cart.service';
 import { CartItem } from '../shared/models/CartItem';
 import { FoodService } from '../services/food/food.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-page',
@@ -12,10 +13,14 @@ import { FoodService } from '../services/food/food.service';
 export class CartPageComponent {
   cart!:Cart;
 
-  constructor(private cartService:CartService
+  constructor(private cartService:CartService,
+    private router:Router
     // ,private foodService:FoodService
     ){
-
+      if (!localStorage.getItem('token')){
+        router.navigate(['Login']);
+        return
+      }
     // this.cartService.addToCart(this.foodService.getAll()[0]);
     // this.cartService.addToCart(this.foodService.getAll()[4]);
     this.setCart()
