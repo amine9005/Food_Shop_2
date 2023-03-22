@@ -1,5 +1,9 @@
 
 
+.body-container{
+  min-height: 100%;
+}
+
 .container{
   display: flex;
   flex-wrap: wrap;
@@ -41,6 +45,12 @@ div span a {
   color: var(--first-color);
 }
 
+div span .resend{
+  font-size: 1.5rem;
+  text-decoration: none;
+  color:#0080ff;
+  cursor: pointer;
+}
 
 @media (max-width:480px) {
 

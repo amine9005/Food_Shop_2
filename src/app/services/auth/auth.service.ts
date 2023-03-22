@@ -46,9 +46,7 @@ export class AuthService {
       } , err =>{
         alert('Invaild Email!');
           this.router.navigate(['Register']);
-      }
-
-      );
+      });
     }
 
     logout():void{

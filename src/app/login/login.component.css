@@ -1,4 +1,7 @@
 
+.body-container{
+  min-height: 100%;
+}
 
 .container{
   display: flex;
@@ -6,8 +9,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3rem auto 3rem auto;
+  margin: 5rem auto 5rem auto;
   border-radius: 1rem;
+
 }
 
 .sub-container{
@@ -29,7 +33,7 @@
 }
 
 .field{
-  font-size: 1.5rem;
+  font-size: 3rem;
   border-radius: 1rem;
   padding: .5rem 1rem .5rem 1rem;
   margin-bottom: 2rem;
@@ -44,9 +48,9 @@
 }
 
 .login{
-  width: 82%;
+  width: 100%;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   border-radius: 1rem;
   padding: .5rem 1rem .5rem 1rem;
   margin-bottom: 1.5rem;
@@ -58,13 +62,13 @@
 
 .rest-password{
   width: 100%;
-  text-align: left;
-  align-items: left;
+  text-align: center;
+  align-items: center;
 }
 
 .rest-password .rest-link{
-  font-size: 1rem;
-  text-align: left;
+  font-size: 1.5rem;
+  text-align: center;
   color: #0084ff;
   margin-bottom: 1rem;
 }
@@ -75,13 +79,13 @@
 }
 
 div span{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: .2rem;
 
 }
 
 div span a {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-decoration: none;
   color: var(--first-color);
 }
@@ -91,14 +95,62 @@ div span a {
   outline-color: red;
 }
 
+@media (max-width:1000px) {
+  .field{
+    font-size: 3rem;
+  }
 
-@media (max-width:480px) {
+  .login{
+    width: 94%;
+    font-size: 3rem;
+  }
+
+  .rest-password{
+    text-align: center;
+    align-items: center;
+  }
+  .rest-password .rest-link{
+    font-size: 1.4rem;
+  }
+
+  div span{
+    font-size: 2rem;
+  }
+
+  div span a{
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width:545px) {
 
   div span {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .field{
+    font-size: 1.5rem;
+  }
+
+  .login{
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .rest-password{
+    text-align: center;
+    align-items: center;
+  }
+  .rest-password .rest-link{
+    font-size: 1.5rem;
+  }
+
+  div span a{
+    font-size: 2.4rem;
   }
 }
 

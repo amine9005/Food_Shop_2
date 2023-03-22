@@ -19,6 +19,12 @@ html{
 
 }
 
+html, body {
+  height: 100%;
+}
+
+
+
 :root{
   --first-color:#04ff26;
   --second-color:#ffbf00;

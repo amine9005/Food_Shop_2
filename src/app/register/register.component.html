@@ -1,16 +1,14 @@
 
-<div class="container">
-
-  <div class="sub-container">
-    <p class="title">Register</p>
-    <input class="field {{ isVaildEmail ? '':'wrong' }}" type="email" placeholder="Enter your email" [(ngModel)]="email" >
-    <input class="field {{ isVaildPassword ? '':'wrong' }}" type="password" placeholder="Enter your password" [(ngModel)]="password" >
-    <input class="field {{ isVaildCPassword ? '':'wrong' }}" type="password" placeholder="confirm your password" [(ngModel)]="cpassword" >
-    <a class="login" (click)="register()">Register</a>
-    <span class="question">have an account ? <a class="Register" routerLink="/Login">Login now!</a> </span>
+<div class="body-container">
+  <div class="container">
+    <div class="sub-container">
+      <p class="title">Register</p>
+      <input class="field {{ isVaildEmail ? '':'wrong' }}" type="email" placeholder="Enter your email" [(ngModel)]="email" >
+      <input class="field {{ isVaildPassword ? '':'wrong' }}" type="password" placeholder="Enter your password" [(ngModel)]="password" >
+      <input class="field {{ isVaildCPassword ? '':'wrong' }}" type="password" placeholder="confirm your password" [(ngModel)]="cpassword" >
+      <a class="login" (click)="register()">Register</a>
+      <span class="question">have an account ? <a class="Register" routerLink="/Login">Login now!</a> </span>
+    </div>
   </div>
-
-
-
-
 </div>
+

@@ -1,47 +1,50 @@
 <app-not-found [visible]="!food" notFoundMessage="Product not found!" resetLinkText="Back to Homepage"></app-not-found>
 
-<div class="container" *ngIf="food">
+<div class="body-container">
+  <div class="container" *ngIf="food">
 
-  <img [src]="food.imageUrl" [alt]="food.imageUrl">
+    <img [src]="food.imageUrl" [alt]="food.imageUrl">
 
-  <div class="details">
-    <div class="header">
-      <span class="name">{{ food.name }}</span>
-      <span>
-        <fa-icon class="favorite {{ food.favorite? '':'not' }}" [icon]="['fas', 'heart']"></fa-icon>
-      </span>
+    <div class="details">
+      <div class="header">
+        <span class="name">{{ food.name }}</span>
+        <span>
+          <fa-icon class="favorite {{ food.favorite? '':'not' }}" [icon]="['fas', 'heart']"></fa-icon>
+        </span>
+      </div>
+      <star-rating
+        class="stars"
+        [value]="food.stars"
+        [totalstars]="5"
+        checkedcolor="yellow"
+        uncheckedcolor="grey"
+        size="30px"
+        [readonly]="true">
+      </star-rating>
+
+      <div class="origins">
+        <span *ngFor="let origin of food.origins">
+          {{ origin }}
+        </span>
+      </div>
+
+      <div class="tags">
+        <app-tags [foodPage]="food.tags" justifyContent="start"></app-tags>
+      </div>
+
+      <div class="cook-time">
+        <span>Time to cook around <strong>{{ food.cookTime }} </strong>🕒 minutes</span>
+      </div>
+
+      <div class="price">
+        <span class="priceLabel">Price: </span>
+        <span>{{ food.price|currency }}</span>
+      </div>
+
+      <button class="cartButton" (click)="addToCart(food)">Add To Cart</button>
     </div>
-    <star-rating
-      class="stars"
-      [value]="food.stars"
-      [totalstars]="5"
-      checkedcolor="yellow"
-      uncheckedcolor="grey"
-      size="30px"
-      [readonly]="true">
-    </star-rating>
 
-    <div class="origins">
-      <span *ngFor="let origin of food.origins">
-        {{ origin }}
-      </span>
-    </div>
 
-    <div class="tags">
-      <app-tags [foodPage]="food.tags" justifyContent="start"></app-tags>
-    </div>
-
-    <div class="cook-time">
-      <span>Time to cook around <strong>{{ food.cookTime }} </strong>🕒 minutes</span>
-    </div>
-
-    <div class="price">
-      <span class="priceLabel">Price: </span>
-      <span>{{ food.price|currency }}</span>
-    </div>
-
-    <button class="cartButton" (click)="addToCart(food)">Add To Cart</button>
   </div>
-
-
 </div>
+

@@ -1,4 +1,6 @@
-
+.body-container{
+  min-height: 100%;
+}
 
 .container{
   display: flex;
@@ -29,7 +31,7 @@
 }
 
 .field{
-  font-size: 1.5rem;
+  font-size: 3.2rem;
   border-radius: 1rem;
   padding: .5rem 1rem .5rem 1rem;
   margin-bottom: 2rem;
@@ -45,7 +47,7 @@
 .login{
   width: 100%;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.2rem;
   border-radius: 1rem;
   padding: .5rem 1rem .5rem 1rem;
   margin-bottom: 1.5rem;
@@ -60,26 +62,25 @@
   outline-color: red;
 }
 
-
-
 .login:hover{
   background-color: var(--first-color);
   color: white;
 }
 
 div span{
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
 
 }
 
 div span a {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-decoration: none;
   color: var(--first-color);
 }
 
-@media (max-width:480px) {
+
+@media (max-width:760px) {
 
   div span {
     display: flex;
@@ -87,10 +88,21 @@ div span a {
     align-items: center;
     justify-content: center;
   }
+
+  .title{
+    font-size: 2rem;
+  }
+  .login{
+    font-size: 1.5rem;
+  }
+
+  .field{
+    font-size: 1.5rem;
+  }
 }
 
 
 
-@media (min-width=360) {
+@media (min-width=360px) {
 
 }

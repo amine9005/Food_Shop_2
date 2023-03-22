@@ -6,6 +6,12 @@ ul{
   /* container must wrap around the content*/
   flex-wrap: wrap;
   padding: 0;
+  margin: 3rem;
+}
+
+
+.body-container{
+  min-height: 100%;
 }
 
 ul li a{

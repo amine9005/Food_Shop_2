@@ -44,9 +44,10 @@ export class CartService {
 
     let cartItem = this.cart.items.find(item => item.food.id === food.id);
     if(cartItem){
-      this.changeQuantity(food.id, cartItem.quantity + 1);
 
-      this.cartRef.doc(this.userId).collection("CartItems").doc(food.id.toString()).set(Object.assign({},new FireItem(food.id,cartItem.quantity+1)))
+      this.changeQuantity(food.id, cartItem.quantity);
+
+      this.cartRef.doc(this.userId).collection("CartItems").doc(food.id.toString()).set(Object.assign({},new FireItem(food.id,cartItem.quantity)))
 
       return;
     }
@@ -76,7 +77,7 @@ export class CartService {
 
   retriveCart(){
     // this.cart = new Cart();
-    return this.cartRef.doc(this.userId).collection("CartItems").snapshotChanges().pipe(take(2)).pipe(
+    return this.cartRef.doc(this.userId).collection("CartItems").snapshotChanges().pipe(take(1)).pipe(
       map(changes => changes.map(
         c => ({ ...c['payload'].doc.data() as FireItem})
       ))
@@ -84,11 +85,11 @@ export class CartService {
   }
 
   fillCart(){
-
     this.retriveCart().subscribe(res=>{
       this.items = res;
       this.items.forEach(fireItem => {
         const food = this.foodService.getFoodById(fireItem.id)
+        // alert(fireItem.count)
         this.addToCart(food);
       })
     })

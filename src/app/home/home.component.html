@@ -2,44 +2,46 @@
 <app-tags></app-tags>
 <app-not-found [visible]="!foods ||foods.length == 0 "></app-not-found>
 
-<ul>
-  <li *ngFor="let food of foods">
-      <a routerLink="/Food/{{ food.id }}">
-        <img src="{{ food.imageUrl }}" alt="{{ food.imageUrl }}">
-        <div class="grid-container">
+<div class="body-container">
+  <ul>
+    <li *ngFor="let food of foods">
+        <a routerLink="/Food/{{ food.id }}">
+          <img src="{{ food.imageUrl }}" alt="{{ food.imageUrl }}">
+          <div class="grid-container">
 
-          <div class="container">
-            <div class="name">{{ food.name }}</div>
-            <fa-icon class="favorite {{ food.favorite? '':'not' }}" [icon]="['fas', 'heart']"></fa-icon>
-          </div>
-          <div class="container">
-            <star-rating
-              class="stars"
-              [value]="food.stars"
-              [totalstars]="5"
-              checkedcolor="yellow"
-              uncheckedcolor="grey"
-              size="20px"
-              [readonly]="true">
-            </star-rating>
-            <div class="cook-time">
-              <span>🕒</span>
-              {{ food.cookTime }}
+            <div class="container">
+              <div class="name">{{ food.name }}</div>
+              <fa-icon class="favorite {{ food.favorite? '':'not' }}" [icon]="['fas', 'heart']"></fa-icon>
             </div>
-          </div>
-          <div class="container container-footer">
-            <div class="origins">
-              <span *ngFor="let origin of food.origins">
-                {{ origin | titlecase }}
-              </span>
+            <div class="container">
+              <star-rating
+                class="stars"
+                [value]="food.stars"
+                [totalstars]="5"
+                checkedcolor="yellow"
+                uncheckedcolor="grey"
+                size="20px"
+                [readonly]="true">
+              </star-rating>
+              <div class="cook-time">
+                <span>🕒</span>
+                {{ food.cookTime }}
+              </div>
             </div>
-          </div>
-          <div class="price">
-            <span>{{ food.price|currency }}</span>
-          </div>
-        </div> <!-- grid-container -->
+            <div class="container container-footer">
+              <div class="origins">
+                <span *ngFor="let origin of food.origins">
+                  {{ origin | titlecase }}
+                </span>
+              </div>
+            </div>
+            <div class="price">
+              <span>{{ food.price|currency }}</span>
+            </div>
+          </div> <!-- grid-container -->
 
+        </a>
+    </li>
+  </ul>
 
-      </a>
-  </li>
-</ul>
+</div>
