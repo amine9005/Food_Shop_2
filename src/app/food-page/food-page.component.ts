@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { Food } from '../shared/models/Food';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FoodService } from '../services/food/food.service';
@@ -9,7 +9,11 @@ import { CartService } from '../services/cart/cart.service';
   templateUrl: './food-page.component.html',
   styleUrls: ['./food-page.component.css']
 })
+
+
 export class FoodPageComponent {
+  @Input()
+  cartButtonMsg:string = 'Login To Add To Cart';
 
   food!:Food;
 
@@ -19,6 +23,11 @@ export class FoodPageComponent {
     private cartService:CartService,
     private router:Router,
     ){
+      if (localStorage.getItem('token')){
+        this.cartButtonMsg = "Add To Cart";
+      } else {
+        this.cartButtonMsg = 'Login To Add To Cart';
+      }
     activatedRoute.params.subscribe(
       (params)=>{
         if(params['id']){
@@ -31,7 +40,13 @@ export class FoodPageComponent {
   }
 
   addToCart(food:Food){
-    this.cartService.addToCart(food);
-    this.router.navigateByUrl('/Cart');
+    if (localStorage.getItem('token')){
+      this.cartService.addToCart(food);
+      this.router.navigateByUrl('/Cart');
+
+    } else{
+      this.router.navigate(['Login'])
+    }
+
   }
 }

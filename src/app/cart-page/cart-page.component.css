@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   /* take the space of the items then the space of cart */
   align-items: flex-start;
-  margin: auto 2rem;
+  margin: 3rem 2rem;
 }
 
 ul{
